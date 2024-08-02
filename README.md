@@ -17,15 +17,15 @@ of the selected colour will be displayed<br>
 
 ## Getting started ✅
 
-Follow these simple steps to get started with the game:
+Follow these simple steps to get started with this project:
 
 1. Clone the repository to your local machine: <br />
-   `git clone`
+   `git clone https://github.com/andyagdw/colour_shades.git`
 
 2. Navigate to the project directory: <br />
-   `cd `
+   `cd colour_shades`
 
-3. Open `` with live server.
+3. Open `interactive_art.html` with live server.
 
 ## Credits
 ### Contact
