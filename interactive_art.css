@@ -1,0 +1,70 @@
+:root {
+    --green: #008000;
+    --blue: #00F;
+    --red: #F00;
+    --black: #0C0C0C;
+}
+
+.bodyWhite {
+    background-color: rgb(252, 232, 232);
+}
+
+.bodyBlack {
+    background-color: var(--black);
+}
+
+.blackColour {
+    color: var(--black);
+}
+
+.whiteColour {
+    color: #FAF9F6;
+}
+
+.header-h1 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline-block;
+}
+
+.btn-theme-toggler {
+    margin-left: 0.5em;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.info {
+    margin-bottom: 2.5em;
+    font-size: 0.9rem;
+    line-height: 0.8;
+}
+
+.select-num-of-boxes-container {
+    margin-bottom: 0.5em;
+}
+
+.input-container {
+    margin-bottom: 1.5em;
+}
+
+.red-radio-button {
+    color: var(--red);
+}
+
+.blue-radio-button {
+    color: var(--blue);
+}
+
+.green-radio-button {
+    color: var(--green);
+}
+
+.myButton {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5em;
+}
+
+#numbers,
+.myButton {
+    cursor: pointer;
+}
