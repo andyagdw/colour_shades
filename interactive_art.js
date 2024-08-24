@@ -8,6 +8,8 @@ function randomInt(min, max) {  // function used to generate different shades of
     return Math.floor(randomNum()*(max-min+1) + min);
 }
 
+const allDivsContainer = document.getElementById("allDivs");
+
 // function that displays the users selected choice (e.g., number of boxes they selected and colour of the boxes)
 function displaySelectedNumOfBoxes() {
     // store the value of the number of boxes
@@ -18,45 +20,42 @@ function displaySelectedNumOfBoxes() {
 if (colourValue === "Red") {
     // Creating and style divs until I get to the selected number of boxes
     for (let i = 0; i < dropDownValue; i++) {
-        let parent = document.getElementById('allDivs');
-        let child = document.createElement('div');
-        let myDiv = parent.appendChild(child);
-        myDiv.style.border = "1px solid #000";
-        myDiv.style.marginTop = "1.5em";
-        myDiv.style.height = "5vw";
-        myDiv.style.width = "5vw";
-        myDiv.style.float = "left";
-        myDiv.style.backgroundColor = 'rgb(' + randomInt() + ',' + roundNum(randomNum()*15) + ',' + roundNum(randomNum()*15) + ')';
-        myDiv.setAttribute('oncontextmenu', 'shrinkDivWidth(this)');
-        myDiv.setAttribute('onclick', 'increaseDivWidth(this)');
+        let newDiv = document.createElement('div');
+        allDivsContainer.appendChild(newDiv);
+        newDiv.style.border = "1px solid #000";
+        newDiv.style.marginTop = "1.5em";
+        newDiv.style.height = "5vw";
+        newDiv.style.width = "5vw";
+        newDiv.style.float = "left";
+        newDiv.style.backgroundColor = 'rgb(' + randomInt() + ',' + roundNum(randomNum()*15) + ',' + roundNum(randomNum()*15) + ')';
+        newDiv.setAttribute('oncontextmenu', 'shrinkDivWidth(this)');
+        newDiv.setAttribute('onclick', 'increaseDivWidth(this)');
     }
 } else if (colourValue === "Green") {
     for (let i = 0; i < dropDownValue; i++) {
-        let parent = document.getElementById('allDivs');
-        let child = document.createElement('div');
-        let myDiv = parent.appendChild(child);
-        myDiv.style.border = "1px solid #000";
-        myDiv.style.marginTop = "1.5em";
-        myDiv.style.height = "5vw";
-        myDiv.style.width = "5vw";
-        myDiv.style.float = "left";
-        myDiv.style.backgroundColor = 'rgb(' + roundNum(randomNum()*50) + ',' + randomInt() + ',' + roundNum(randomNum()*50) + ')';
-        myDiv.setAttribute('oncontextmenu', 'shrinkDivWidth(this)');
-        myDiv.setAttribute('onclick', 'increaseDivWidth(this)');        
+        let newDiv = document.createElement('div');
+        allDivsContainer.appendChild(newDiv);
+        newDiv.style.border = "1px solid #000";
+        newDiv.style.marginTop = "1.5em";
+        newDiv.style.height = "5vw";
+        newDiv.style.width = "5vw";
+        newDiv.style.float = "left";
+        newDiv.style.backgroundColor = 'rgb(' + roundNum(randomNum()*50) + ',' + randomInt() + ',' + roundNum(randomNum()*50) + ')';
+        newDiv.setAttribute('oncontextmenu', 'shrinkDivWidth(this)');
+        newDiv.setAttribute('onclick', 'increaseDivWidth(this)');        
     } 
 } else if (colourValue === "Blue") {
     for (let i = 0; i < dropDownValue; i++) {
-        let parent = document.getElementById('allDivs');
-        let child = document.createElement('div');
-        let myDiv = parent.appendChild(child);
-        myDiv.style.border = "1px solid #000";
-        myDiv.style.marginTop = "1.5em";
-        myDiv.style.height = "5vw";
-        myDiv.style.width = "5vw";
-        myDiv.style.float = "left";
-        myDiv.style.backgroundColor = 'rgb(' + roundNum(randomNum()*5) + ',' + roundNum(randomNum()*5) + ',' + randomInt() + ')';
-        myDiv.setAttribute('oncontextmenu', 'shrinkDivWidth(this)');
-        myDiv.setAttribute('onclick', 'increaseDivWidth(this)');
+        let newDiv = document.createElement('div');
+        allDivsContainer.appendChild(newDiv);
+        newDiv.style.border = "1px solid #000";
+        newDiv.style.marginTop = "1.5em";
+        newDiv.style.height = "5vw";
+        newDiv.style.width = "5vw";
+        newDiv.style.float = "left";
+        newDiv.style.backgroundColor = 'rgb(' + roundNum(randomNum()*5) + ',' + roundNum(randomNum()*5) + ',' + randomInt() + ')';
+        newDiv.setAttribute('oncontextmenu', 'shrinkDivWidth(this)');
+        newDiv.setAttribute('onclick', 'increaseDivWidth(this)');
     }
 }
 }
@@ -85,7 +84,8 @@ function increaseDivWidth(selectedDiv) {  // increase the width of the div when 
 const body = document.getElementById('my-body');
 
 body.addEventListener('keydown', function(event) { // swap two random divs when user presses 's'
-    if (event.code == 'KeyS') {
+    // Check if there are any divs to prevent error
+    if (event.code == 'KeyS' && allDivsContainer.childElementCount) {
         let lengthOfDivs = document.getElementById('allDivs').children.length;
         let a1 = Math.floor(randomNum()*lengthOfDivs);
         let a2 = Math.floor(randomNum()*lengthOfDivs);
